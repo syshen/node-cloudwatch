@@ -1,0 +1,19 @@
+{
+	"name": "node-cloudwatch",
+	"version": "0.0.1",
+	"description": "Simple HTTP wrapper for using CloudWatch API",
+	"keywords": ["REST", "http", "client", "node"],
+	"repository": "git://github.com/franklovecchio/node-cloudwatch.git",
+	"author": "Frank LoVecchio <frank@isidorey.com> (http://franklovecchio.com)",
+	"dependencies": {
+		"http": ">= 0.0.6",
+		"querystring": ">= 0.0.1"
+	},
+	"main": "index",
+	"license": {
+	        "type": "Hack the planet"
+	},
+	"engines": { 
+		"node": ">= 0.4.6 < 0.5.0" 
+	}
+}
