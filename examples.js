@@ -1,15 +1,5 @@
-var REST = require('index.js');
+var REST = require('node-cloudwatch);
 var client = new REST.AmazonCloudwatchClient();
-
-// Example for diskspace
-
-/*
-params = {};
-
-client.request('ListMetrics', params, function (response) {
-	client.showResponse(response);
-});
-*/
 
 function poll(callback) {
 	
@@ -28,13 +18,12 @@ poll(function(response) {
 	
 	params = {};
 	
-	params['Namespace'] = 'Isidorey Instance Metrics';
-	params['MetricData.member.1.MetricName'] = 'DiskSpace';
-	params['MetricData.member.1.Unit'] = 'Percent';
-	params['MetricData.member.1.Value'] = response.replace('%', '');
+	params['Namespace'] = 'MyCustomNamespace';
+	params['MetricData.member.1.MetricName'] = 'MyCustomMetric';
+	params['MetricData.member.1.Unit'] = 'MyUnit';
+	params['MetricData.member.1.Value'] = 'MyValue';
 	params['MetricData.member.1.Dimensions.member.1.Name'] = 'InstanceID';
 	params['MetricData.member.1.Dimensions.member.1.Value'] = 'i-XXXXXX';
-
 	
 	client.request('PutMetricData', params, function (response) {
 		client.showResponse(response);
