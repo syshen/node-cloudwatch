@@ -98,20 +98,7 @@ AmazonCloudwatchClient.prototype.queryBuilder = function(command, parameters) {
 		
 };
 
-/*
-AmazonCloudwatchClient.prototype.post = function (uriParams, getParams, postParams, callback) {
-						
-	var options = this.configureHttp('POST', uriParams, getParams);
-	var queryString = querystring.stringify(postParams);
-
-	this.makePostRequest(options, queryString, uriParams, getParams, postParams, function (response) {
-		callback(response);
-	});
-
-};
-*/
-
-AmazonCloudwatchClient.prototype.get = function (action, requestParams, callback) {
+AmazonCloudwatchClient.prototype.request = function (action, requestParams, callback) {
 
 	var query = this.queryBuilder(action, requestParams);
 
@@ -122,44 +109,6 @@ AmazonCloudwatchClient.prototype.get = function (action, requestParams, callback
 	});
 
 };
-
-/*
-AmazonCloudwatchClient.prototype.makePostRequest = function (options, queryString, uriParams, getParams, postParams, callback) {
-	
-	if (postParams && postParams.body) {
-		options.headers['Content-Length'] = postParams.body.length;
-	} else {
-		if (postParams) {
-			options.headers['Content-Length'] = queryString.length;
-		} else {
-			options.headers['Content-Length'] = 0;
-		}
-	}
-		
-	var restRequest = http.request(options, 
-		function (response) {	
-									
-			var responseData = '';
-			
-			response.on('data', 
-				function (chunk) {
-					responseData = responseData + chunk.toString();
-				}
-			);
-
-			response.on('end',
-				function() {
-					callback(responseData.trim());
-				}
-			);
-		}
-	);
-	
-	restRequest.write('');
-	restRequest.end();
-	
-};
-*/
 
 AmazonCloudwatchClient.prototype.makeRequest = function (options, callback) {
 			
