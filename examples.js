@@ -1,5 +1,9 @@
-var REST = require('node-cloudwatch);
+var REST = require('node-cloudwatch');
 var client = new REST.AmazonCloudwatchClient();
+
+/**
+* Disk Space Alerting
+*/
 
 function poll(callback) {
 	
@@ -20,8 +24,8 @@ poll(function(response) {
 	
 	params['Namespace'] = 'MyCustomNamespace';
 	params['MetricData.member.1.MetricName'] = 'MyCustomMetric';
-	params['MetricData.member.1.Unit'] = 'MyUnit';
-	params['MetricData.member.1.Value'] = 'MyValue';
+	params['MetricData.member.1.Unit'] = 'Percent';
+	params['MetricData.member.1.Value'] = response.replace('%', '');
 	params['MetricData.member.1.Dimensions.member.1.Name'] = 'InstanceID';
 	params['MetricData.member.1.Dimensions.member.1.Value'] = 'i-XXXXXX';
 	
