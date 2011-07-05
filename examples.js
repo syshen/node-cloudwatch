@@ -22,7 +22,6 @@ function poll(callback) {
 	
 }
 
-// CloudSandra API
 poll(function(response) {
 
 	console.log('df -h returned: ' + response.replace('%', ''));
