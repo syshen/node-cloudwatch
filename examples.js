@@ -1,4 +1,4 @@
-var REST = require('node-cloudwatch');
+var REST = require('index.js');
 var client = new REST.AmazonCloudwatchClient();
 
 /**
