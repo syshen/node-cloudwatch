@@ -7,7 +7,9 @@
 	"author": "Frank LoVecchio <frank@isidorey.com> (http://franklovecchio.com)",
 	"dependencies": {
 		"http": ">= 0.0.6",
-		"querystring": ">= 0.0.1"
+		"querystring": ">= 0.0.1",
+		"xml2json": ">= 0.0.1",
+		"crypto": ">= 0.0.1"
 	},
 	"main": "index",
 	"license": {

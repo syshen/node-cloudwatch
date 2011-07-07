@@ -1,6 +1,7 @@
 var crypto = require('crypto'),
 		querystring = require('querystring'),
-			http = require('http');
+			http = require('http'),
+				parser = require('xml2json');
 		
 AmazonCloudwatchClient = function () {
 	
@@ -105,7 +106,8 @@ AmazonCloudwatchClient.prototype.request = function (action, requestParams, call
 	var options = this.configureHttp('GET', '/?' + query.join("&"));
 	
 	this.makeRequest(options, function (response) {
-		callback(response);
+		var jsonResponse = parser.toJson(response);
+		callback(jsonResponse);
 	});
 
 };
