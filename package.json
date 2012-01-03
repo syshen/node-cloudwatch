@@ -1,6 +1,6 @@
 {
 	"name": "node-cloudwatch",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Simple wrapper for using Amazon CloudWatch API",
 	"keywords": ["amazon", "cloudwatch", "client", "node"],
 	"repository": "git://github.com/franklovecchio/node-cloudwatch.git",
