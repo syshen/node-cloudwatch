@@ -12,8 +12,5 @@
 	"main": "index",
 	"license": {
 	     "type": "Hack the planet"
-	},
-	"engines": { 
-		"node": ">= 0.4.6 < 0.6.8" 
 	}
 }
