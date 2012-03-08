@@ -1,8 +1,6 @@
-var REST = require('index.js');
+var REST = require('./index.js');
 var client = new REST.AmazonCloudwatchClient();
-/**
- * Disk Space Alerting
- */
+/* Disk space metrics */
 function poll(callback) {
   this.command = 'df -h | grep \'/dev/disk0s2\' | awk \'{print $5}\'';
   var exec = require('child_process').exec,

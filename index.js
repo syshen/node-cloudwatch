@@ -58,7 +58,7 @@ AmazonCloudwatchClient.prototype.queryBuilder = function (command, parameters) {
     name = names[_i];
     query.push(querystring.escape(name) + '=' + querystring.escape(map[name]));
   }
-  var toSign = 'GET\n' + ('monitoring.us-east-1.amazonaws.com\n') + '/\n' + query.join("&");
+  var toSign = 'GET\n' + ('monitoring.us-east-1.amazonaws.com\n') + '/\n' + query.join('&');
   var hmac = crypto.createHmac('sha256', process.env['AWS_SECRET_ACCESS_KEY']);
   hmac.update(toSign);
   var digest = querystring.escape(hmac.digest('base64'));
@@ -67,7 +67,7 @@ AmazonCloudwatchClient.prototype.queryBuilder = function (command, parameters) {
 };
 AmazonCloudwatchClient.prototype.request = function (action, requestParams, callback) {
   var query = this.queryBuilder(action, requestParams);
-  var options = this.configureHttp('GET', '/?' + query.join("&"));
+  var options = this.configureHttp('GET', '/?' + query.join('&'));
   this.makeRequest(options, function (response) {
     callback(response);
   });
@@ -82,7 +82,7 @@ AmazonCloudwatchClient.prototype.makeRequest = function (options, callback) {
       callback(responseData.trim());
     });
   });
-  restRequest.on('error', function (exception) { /* Write this to log */
+  restRequest.on('error', function (exception) {
   });
   restRequest.write('');
   restRequest.end();
