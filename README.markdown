@@ -7,8 +7,8 @@ This is an AWS CloudWatch client for Node.js. For a real use-case, see `examples
 Via the command line, or `process.env`, set:
 
 
-   process.env['AWS_ACCESS_KEY_ID'] = '<ID>'; 
-   process.env['AWS_SECRET_ACCESS_KEY'] = '<KEY>';
+	process.env['AWS_ACCESS_KEY_ID'] = '<ID>'; 
+	process.env['AWS_SECRET_ACCESS_KEY'] = '<KEY>';
 
 
 Then instantiate a new client in your application:
@@ -20,13 +20,14 @@ Then instantiate a new client in your application:
 
 ### Usage
 
+To list all metrics:
 
-	var params = {};
-
-	client.request('ListMetrics', params, function (response) {
+	client.request('ListMetrics', {}, function (response) {
 	  client.showResponse(response);
 	});	
 	
+	
+To push custom metrics:
 	
 	var params = {};
 	
