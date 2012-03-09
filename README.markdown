@@ -1,6 +1,6 @@
 # node-cloudwatch
 
-This is an AWS CloudWatch client for Node.js. For a real use-case, see `examples.js` or [node-monitor](https://github.com/franklovecchio/node-monitor).
+This is an AWS CloudWatch client for Node.js. For a real use-case, see [node-monitor](https://github.com/franklovecchio/node-monitor).
 
 ### Pre-Reqs
 
