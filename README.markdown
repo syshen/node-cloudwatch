@@ -37,7 +37,6 @@ To push custom metrics:
 	params['MetricData.member.1.Value'] = 'MyValue';
 	params['MetricData.member.1.Dimensions.member.1.Name'] = 'InstanceID';
 	params['MetricData.member.1.Dimensions.member.1.Value'] = 'i-XXXXXX';
-
 	
 	client.request('PutMetricData', params, function (response) {
 	  client.showResponse(response);
