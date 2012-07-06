@@ -3,10 +3,10 @@ var crypto = require('crypto'),
   http = require('http');
 
 var region = process.env['AWS_EC2_REGION'];
-var cloudwatch_host = 'monitoring.' + region + '.amazonaws.com';
 
 AmazonCloudwatchClient = function () {};
 AmazonCloudwatchClient.prototype.configureHttp = function (requestMethod, query) {
+  var cloudwatch_host = 'monitoring.' + region + '.amazonaws.com';
   var options = {
     host: cloudwatch_host,
     port: 80,
@@ -62,6 +62,7 @@ AmazonCloudwatchClient.prototype.queryBuilder = function (command, parameters) {
     name = names[_i];
     query.push(querystring.escape(name) + '=' + querystring.escape(map[name]));
   }
+  var cloudwatch_host = 'monitoring.' + region + '.amazonaws.com';
   var toSign = 'GET\n' + (cloudwatch_host + '\n') + '/\n' + query.join('&');
   var hmac = crypto.createHmac('sha256', process.env['AWS_SECRET_ACCESS_KEY']);
   hmac.update(toSign);
