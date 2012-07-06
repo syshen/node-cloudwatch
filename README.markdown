@@ -1,6 +1,9 @@
 # node-cloudwatch
 
-This is an AWS CloudWatch client for Node.js. For a real use-case, see [node-monitor](https://github.com/franklovecchio/node-monitor).
+A CloudWatch client written in Node.js.
+
+This forks from franklovecchio's node-cloudwatch (https://github.com/franklovecchio/node-cloudwatch), but update for EC2 regions support.
+
 
 ### Pre-Reqs
 
@@ -9,6 +12,7 @@ Via the command line, or `process.env`, set:
 
 	process.env['AWS_ACCESS_KEY_ID'] = '<ID>'; 
 	process.env['AWS_SECRET_ACCESS_KEY'] = '<KEY>';
+        process.env['AWS_EC2_REGION'] = '<REGION>';
 
 
 Then instantiate a new client in your application:

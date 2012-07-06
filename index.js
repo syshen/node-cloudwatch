@@ -1,15 +1,19 @@
 var crypto = require('crypto'),
   querystring = require('querystring'),
   http = require('http');
+
+var region = process.env['AWS_EC2_REGION'];
+var cloudwatch_host = 'monitoring.' + region + '.amazonaws.com';
+
 AmazonCloudwatchClient = function () {};
 AmazonCloudwatchClient.prototype.configureHttp = function (requestMethod, query) {
   var options = {
-    host: 'monitoring.amazonaws.com',
+    host: cloudwatch_host,
     port: 80,
     path: query,
     method: requestMethod,
     headers: {
-      'Host': 'monitoring.us-east-1.amazonaws.com',
+      'Host': cloudwatch_host,
       'Content-Length': 0
     }
   };
@@ -58,7 +62,7 @@ AmazonCloudwatchClient.prototype.queryBuilder = function (command, parameters) {
     name = names[_i];
     query.push(querystring.escape(name) + '=' + querystring.escape(map[name]));
   }
-  var toSign = 'GET\n' + ('monitoring.us-east-1.amazonaws.com\n') + '/\n' + query.join('&');
+  var toSign = 'GET\n' + (cloudwatch_host + '\n') + '/\n' + query.join('&');
   var hmac = crypto.createHmac('sha256', process.env['AWS_SECRET_ACCESS_KEY']);
   hmac.update(toSign);
   var digest = querystring.escape(hmac.digest('base64'));
